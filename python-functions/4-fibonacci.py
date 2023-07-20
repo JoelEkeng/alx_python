@@ -1,23 +1,15 @@
-#!/usr/bin/env python3
-
-#fibonacci_sequence = __import__('4-fibonacci').fibonacci_sequence
-
 def fibonacci_sequence(n):
-    if (n == 0):
-        Sequence_list = []
-        return Sequence_list
-    elif (n == 1):
-        Sequence_list = [0]
-        return Sequence_list
-    elif (n == 2):
-        Sequence_list = [0, 1]
-        return Sequence_list
-
-    Sequence = [0, 1]
-
-    for i in range (2, n):
-        Fibonacci_sequence = Sequence[-1] + Sequence[-2]
-        Sequence.append(Fibonacci_sequence)
-        
-    return Sequence
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
     
+    fibonacci_list = [0, 1]  # Initialize with first two Fibonacci numbers
+    
+    while len(fibonacci_list) < n:
+        next_fibonacci = fibonacci_list[-1] + fibonacci_list[-2]
+        fibonacci_list.append(next_fibonacci)
+    
+    return fibonacci_list
