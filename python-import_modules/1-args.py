@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import sys
 
+
 def main():
     # Get the number of arguments
     num_args = len(sys.argv) - 1
@@ -16,5 +17,5 @@ def main():
         for i in range(1, num_args + 1):
             print("{}: {}".format(i, sys.argv[i]))
 
-if name == "main":
+if __name__ == "__main__":
     main()
