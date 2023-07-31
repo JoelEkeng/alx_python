@@ -2,7 +2,7 @@
 from variable_load_2 import a
 
 
-def main(a):
+def main():
     print (a)
 
 if __name__ == "__main__":
