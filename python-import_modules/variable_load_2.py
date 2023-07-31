@@ -1,2 +1,5 @@
-def a( a = 98):
-    return a
+def a(a):
+    print (a)
+
+
+a(90)   
