@@ -1,14 +1,15 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 def print_matrix_integer(matrix=[[]]):
-    for i, matrix in enumerate (matrix):
-        print ("{}".format(matrix))
+    if matrix == " ":
+        print()
+        return
 
+    for row in matrix:
+        for i, elements in enumerate(row):
+            print("{:d}".format(elements), end="")
 
-matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-
-print_matrix_integer(matrix)
+            if i < len(matrix) - 1:
+                print(" ", end="")
+       
+        print()   
