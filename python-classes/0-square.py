@@ -17,7 +17,7 @@ class Square:
     :type size: float
     """
     def __init__(self, size):
-        self.size = size
+        self.__size = size
         
     """
     Sets the size of the square.
@@ -35,5 +35,5 @@ class Square:
     :return: The size of the square.
     :rtype: float
     """
-    def get_size(self):
-        return self.size
+    def get_size(self, self):
+        return self.__size
