@@ -35,5 +35,5 @@ class Square:
     :return: The size of the square.
     :rtype: float
     """
-    def get_size(self, self):
+    def get_size(self):
         return self.__size
