@@ -17,7 +17,7 @@ class Square:
     :type size: int
     """
     def __init__(self, size=0):
-        self.__size = size*size
+        self.__size = size
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         if size < 0:
@@ -25,7 +25,7 @@ class Square:
 
     def area(self):
         """" This is used to find the square of the area by multipling by 2"""
-        return self.__size ** 1     
+        return self.__size ** 2  
 
     """
     Sets the size of the square.
