@@ -1,29 +1,34 @@
-#/usr/bin/python3
-
+#!/usr/bin/python3
 
 """
-The is_same_class functions accepts two functions obj and a_class. 
-This documentation aims to provide an overview of inheritance using isinstance, issubclas, type and super built in funciton.
+The inherits_from function accepts two arguments: an object (obj) and a class (a_class).
+This documentation aims to provide an overview of inheritance using isinstance, issubclass,
+type, and the super built-in function.
 
-Function: is_same_class
+Function: inherits_from
 Description:
-The is_same_class gets an object and check if the class corespond. 
+    The inherits_from function checks if an object belongs to a class or a subclass.
+
+Parameters:
+    obj (object): The object to be checked.
+    a_class (class): The class to check against.
+
+Returns:
+    bool: True if the object is an instance of the class or a subclass; False otherwise.
 
 Examples:
-        # >>> is_same_class(5, int)
-        True
-        # >>> is_same_class("hello", str)
-        True
-        # >>> is_same_class([], list)
-        True
-        # >>> is_same_class(5, float)
-        False
+    >>> inherits_from(5, int)
+    True
+    >>> inherits_from("hello", str)
+    True
+    >>> inherits_from([], list)
+    True
+    >>> inherits_from(5, float)
+    False
 """
 def inherits_from(obj, a_class):
-    
     """
-    This checks if the Obj and the classes matches.
-    The isinstance function is used to check that the object matches the data type
-    and returns the output.
+    This function checks if the obj is an instance of the specified class or a subclass.
+    The isinstance function is used to perform the check, and the result is returned.
     """
-    return issubclass(int, a_class) 
+    return isinstance(type(obj), a_class)
