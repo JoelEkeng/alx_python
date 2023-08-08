@@ -5,7 +5,6 @@ A function that checks if an object is an instance of a class that inherited
 
 """
 
-
 def inherits_from(obj, a_class):
     """
     Args:
