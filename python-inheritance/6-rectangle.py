@@ -48,7 +48,14 @@ class BaseGeometry(metaclass=BaseGeometrymetaclass):
             raise ValueError ('{} must be greater than 0'.format(name))
 
 class Rectangle(BaseGeometry):
+    """
+    The Rectangle class inherits from the BaseGeometry class
+    """
     def __init__(self, width, height):
+        """The intneger_validator which is an instance of the BaseGeometry class is called
+        """
         BaseGeometry.integer_validator(self, width, height)
+        """Here an Instance of width and height is created
+        """
         self.__width = width
         self.__height = height
