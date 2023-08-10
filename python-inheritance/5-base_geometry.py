@@ -40,9 +40,9 @@ class BaseGeometry(metaclass=BaseGeometrymetaclass):
         If it's not an Integer, a TypeError is raised
         """
         if not isinstance(value, int):
-            raise TypeError ('<name> must be an integer')
+            raise TypeError ('name must be an integer')
         """Checking that the value must be great than zero
         if the value is less than or equal to zero, then a valueError is raised.
         """
         if value <= 0 :
-            raise ValueError ('<name> must be greater than 0')
+            raise ValueError ('age must be greater than 0')
