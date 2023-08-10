@@ -39,7 +39,7 @@ class BaseGeometry(metaclass=BaseGeometrymetaclass):
         """Checking that the value passed by the user is an Integer
         If it's not an Integer, a TypeError is raised
         """
-        if not isinstance(int, value):
+        if not isinstance(value, int):
             raise TypeError ('{} must be an integer'.format(value))
         """Checking that the value must be great than zero
         if the value is less than or equal to zero, then a valueError is raised.
