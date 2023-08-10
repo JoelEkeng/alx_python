@@ -45,4 +45,4 @@ class BaseGeometry(metaclass=BaseGeometrymetaclass):
         if the value is less than or equal to zero, then a valueError is raised.
         """
         if value <= 0 :
-            raise ValueError ('{} age must be greater than 0'.format(name))
+            raise ValueError ('{} must be greater than 0'.format(name))
