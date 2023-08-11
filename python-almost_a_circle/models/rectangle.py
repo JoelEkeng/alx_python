@@ -128,3 +128,25 @@ class Rectangle(Base):
             int: The area of the rectangle, calculated as width * height.
         """
         return self.__width * self.__height
+    
+    def display(self):
+        """
+        Display the rectangle using '#' characters.
+
+        This method prints a visual representation of the rectangle
+        using '#' characters. Each row of the rectangle is printed on
+        a new line, and the number of '#' characters in each row is
+        determined by the width of the rectangle.
+
+        Example:
+        If the rectangle has width = 5 and height = 3, calling display()
+        will output:
+        #####
+        #####
+        #####
+
+        Note: This method assumes that the width and height values are
+        non-negative integers.
+        """
+        for i in range(self.__height):
+            print ('#' * self.__width)
