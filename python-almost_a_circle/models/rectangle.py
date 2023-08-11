@@ -149,6 +149,8 @@ class Rectangle(Base):
         non-negative integers.
         """
         for x in range(self.__x):
+            if self.__y == 0:
+                print()
             print ('#')
         for i in range(self.__height):
             print ('#' * self.__width)
