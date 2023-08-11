@@ -35,83 +35,63 @@ class Rectangle(Base):
         self._validate_height()
         self._validate_x()
         self._validate_y()
-    
+
     @property
     def width(self):
-        """int: The width of the rectangle."""
+        """Get the width of the rectangle."""
         return self.__width
-    
-    @width.setter
-    def width(self, width):
-        """
-        Set the width of the rectangle.
 
-        Args:
-            width (int): The new width value.
-        """
-        if not isinstance(width, int):
-           raise TypeError ('{} must be an integer'.format(width)) 
-        if width <= 0:
-            raise ValueError ('{} must be > 0'.format(width))
-        self.__width = width
+    @width.setter
+    def width(self, value):
+        """Set the width of the rectangle."""
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
+        self.__width = value
 
     @property
     def height(self):
-        """int: The height of the rectangle."""
+        """Get the height of the rectangle."""
         return self.__height
-    
-    @height.setter
-    def height(self, height):
-        """
-        Set the height of the rectangle.
 
-        Args:
-            height (int): The new height value.
-        """
-        if not isinstance(height, int):
-           raise TypeError ('{} must be an integer'.format(height)) 
-        if height <= 0:
-            raise ValueError ('{} must be > 0'.format(height))
-        self.__height = height
-    
+    @height.setter
+    def height(self, value):
+        """Set the height of the rectangle."""
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        if value <= 0:
+            raise ValueError("height must be > 0")
+        self.__height = value
+
     @property
     def x(self):
-        """int: The x-coordinate of the top-left corner."""
+        """Get the x-coordinate of the rectangle."""
         return self.__x
-    
-    @x.setter
-    def x(self, x):
-        """
-        Set the x-coordinate of the top-left corner.
 
-        Args:
-            x (int): The new x-coordinate value.
-        """
-        if not isinstance(x, int):
-           raise TypeError ('{} must be an integer'.format(x)) 
-        if x < 0:
-            raise ValueError ('{} must be >= 0'.format(x))
-        self.__x = x
-    
+    @x.setter
+    def x(self, value):
+        """Set the x-coordinate of the rectangle."""
+        if not isinstance(value, int):
+            raise TypeError("x must be an integer")
+        if value < 0:
+            raise ValueError("x must be >= 0")
+        self.__x = value
+
     @property
     def y(self):
-        """int: The y-coordinate of the top-left corner."""
+        """Get the y-coordinate of the rectangle."""
         return self.__y
-    
+
     @y.setter
-    def y(self, y):
-        """
-        Set the y-coordinate of the top-left corner.
-
-        Args:
-            y (int): The new y-coordinate value.
-        """
-        if not isinstance(y, int):
-           raise TypeError ('{} must be an integer'.format(y)) 
-        if y < 0:
-            raise ValueError ('{} must be > 0'.format(y))
-        self.__y = y
-
+    def y(self, value):
+        """Set the y-coordinate of the rectangle."""
+        if not isinstance(value, int):
+            raise TypeError("y must be an integer")
+        if value < 0:
+            raise ValueError("y must be >= 0")
+        self.__y = value
+    
     def _validate_width(self):
         """Validate the width attribute."""
         if not isinstance(self.__width, int):
