@@ -178,9 +178,4 @@ class Rectangle(Base):
         str: A formatted string representing the updated Rectangle object.
         """
         self.__id, self.__width, self.__height, self.__x, self.__y = args
-        __id =  10
-        __width = 10
-        __height = 10
-        __x = 10
-        __y = 10
         return("[Rectangle] ({}) {}/{} - {}/{}").format(self.id, self.__x, self.__y, self.__width, self.__height)
