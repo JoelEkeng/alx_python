@@ -148,10 +148,10 @@ class Rectangle(Base):
         Note: This method assumes that the width and height values are
         non-negative integers.
         """
-        for x in range(self.__y):
-            print ()
-        for i in range(self.__height):
-            print ('#' * self.__width)
+        for _ in range(self.__y):
+            print()
+        for _ in range(self.__height):
+            print(" " * self.__x + "#" * self.__width)
     
     def __str__(self):
         """
@@ -161,4 +161,3 @@ class Rectangle(Base):
             formatted string of rectange attributes.
         """
         return("[Rectangle] ({}) {}/{} - {}/{}").format(self.id, self.__x, self.__y, self.__width, self.__height)
-
