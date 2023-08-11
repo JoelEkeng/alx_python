@@ -59,3 +59,8 @@ class Rectangle(BaseGeometry):
         """
         self.__width = width
         self.__height = height
+    
+    def __dir__(cls):
+        """This is used to check the list of attributes in the dir magic class.
+        It ensures that __init_subclass__ is not printed"""
+        return [attribute for attribute in super().__dir__() if attribute != '__getstate__']
