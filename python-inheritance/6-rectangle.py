@@ -14,7 +14,6 @@ class BaseGeometrymetaclass(type):
         """This is used to check the list of attributes in the dir magic class.
         It ensures that __init_subclass__ is not printed"""
         return [attribute for attribute in super.__dir__() if attribute != '__getstate__']
-
 class BaseGeometry(metaclass=BaseGeometrymetaclass):
     """This is an empty class.
     The Pass keyword is used to print an empty line
@@ -53,40 +52,10 @@ class Rectangle(BaseGeometry):
     The Rectangle class inherits from the BaseGeometry class
     """
     def __init__(self, width, height):
+        """The intneger_validator which is an instance of the BaseGeometry class is called
         """
-          Initializes a new rectangle.
-
-        Args:
-            width (int): The width of the rectangle.
-            height (int): The height of the rectangle.
-
-        Raises:
-            TypeError: If the value of the attribute width or height is not an integer.
-            ValueError: If the value of the attribute width or height is less than or equal to 0.
+        BaseGeometry.integer_validator(self, width, height)
+        """Here an Instance of width and height is created
         """
-        BaseGeometry.integer_validator()
-        # self.integer_validator("width", width)
-        # self.integer_validator("height", height)
         self.__width = width
         self.__height = height
-    
-    # def area(self):
-    #     """
-    #     Calculates the area of the rectangle.
-
-    #     Returns:
-    #         int: The area of the rectangle.
-    #     """
-    #     return self.__width * self.__height
-
-    # def __getattribute__(self, name):
-    #     if name in ["_width", "_height"]:
-    #         raise AttributeError("'Rectangle' object has no attribute '{}'".format(name))
-    #     elif name == "height" and not isinstance(object.__getattribute__(self, "_height"), int):
-    #         raise TypeError("height must be an integer")
-    #     return super().__getattribute__(name)
-
-    def __dir__(cls):
-        """This is used to check the list of attributes in the dir magic class.
-        It ensures that __init_subclass__ is not printed"""
-        return [attribute for attribute in super().__dir__() if attribute != '__getstate__']
