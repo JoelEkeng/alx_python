@@ -161,3 +161,26 @@ class Rectangle(Base):
             formatted string of rectange attributes.
         """
         return("[Rectangle] ({}) {}/{} - {}/{}").format(self.id, self.__x, self.__y, self.__width, self.__height)
+    
+    def update(self, *args):
+        """
+        Update the attributes of the Rectangle object and return a formatted string representation.
+
+        This method allows updating the attributes of a Rectangle object using positional arguments.
+        The arguments are expected to be in the order: [id, width, height, x, y]. After updating
+        the attributes, the method returns a formatted string representation of the Rectangle object.
+
+        Parameters:
+        *args: Variable number of positional arguments representing the attributes to update,
+               in the order [id, width, height, x, y].
+
+        Returns:
+        str: A formatted string representing the updated Rectangle object.
+        """
+        self.__id, self.__width, self.__height, self.__x, self.__y = args
+        __id =  10
+        __width = 10
+        __height = 10
+        __x = 10
+        __y = 10
+        return("[Rectangle] ({}) {}/{} - {}/{}").format(self.id, self.__x, self.__y, self.__width, self.__height)
