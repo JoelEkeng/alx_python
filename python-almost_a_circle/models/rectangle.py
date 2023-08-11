@@ -44,7 +44,7 @@ class Rectangle(Base):
         Args:
             width (int): The new width value.
         """
-        if not isinstance(int, width):
+        if not isinstance(width, int):
            raise TypeError ('{} must be an integer'.format(width)) 
         if width <= 0:
             raise ValueError ('{} must be > 0'.format(width))
@@ -63,7 +63,7 @@ class Rectangle(Base):
         Args:
             height (int): The new height value.
         """
-        if not isinstance(int, height):
+        if not isinstance(height, int):
            raise TypeError ('{} must be an integer'.format(height)) 
         if height <= 0:
             raise ValueError ('{} must be > 0'.format(height))
@@ -82,7 +82,7 @@ class Rectangle(Base):
         Args:
             x (int): The new x-coordinate value.
         """
-        if not isinstance(int, x):
+        if not isinstance(x, int):
            raise TypeError ('{} must be an integer'.format(x)) 
         if x < 0:
             raise ValueError ('{} must be >= 0'.format(x))
@@ -101,7 +101,7 @@ class Rectangle(Base):
         Args:
             y (int): The new y-coordinate value.
         """
-        if not isinstance(int, height):
+        if not isinstance(y, int):
            raise TypeError ('{} must be an integer'.format(y)) 
         if y < 0:
             raise ValueError ('{} must be > 0'.format(y))
