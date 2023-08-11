@@ -148,7 +148,7 @@ class Rectangle(Base):
         Note: This method assumes that the width and height values are
         non-negative integers.
         """
-        for x in range(self.__x):
+        for x in range(self.__y):
             print ()
         for i in range(self.__height):
             print ('#' * self.__width)
