@@ -165,4 +165,4 @@ class Rectangle(Base):
         Note: This method assumes that the attributes __id, __x, __y, __width,
         and __height are defined for the Rectangle object.
         """
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.__id, self.__x, self.__y, self.__width, self.__height)
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.__id, self.__x, self.__y, self.__width, self.__height))
