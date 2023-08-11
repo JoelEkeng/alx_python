@@ -78,6 +78,13 @@ class Rectangle(BaseGeometry):
             int: The area of the rectangle.
         """
         return self.__width * self.__height
+        
+    def __getattribute__(self, name):
+        if name in ["_width", "_height"]:
+            raise AttributeError("'Rectangle' object has no attribute '{}'".format(name))
+        elif name == "height" and not isinstance(object.__getattribute__(self, "_height"), int):
+            raise TypeError("height must be an integer")
+        return super().__getattribute__(name)
 
     def __dir__(cls):
         """This is used to check the list of attributes in the dir magic class.
