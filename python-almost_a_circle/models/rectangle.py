@@ -153,16 +153,10 @@ class Rectangle(Base):
     
     def __str__(self):
         """
-        Generate a human-readable string representation of the Rectangle.
-
-        This method returns a formatted string that provides information about
-        the Rectangle object. The format includes the object's unique identifier,
-        position (x, y), width, and height.
+        Overrides __str__
 
         Returns:
-        str: A formatted string representing the Rectangle object.
-
-        Note: This method assumes that the attributes __id, __x, __y, __width,
-        and __height are defined for the Rectangle object.
+            formatted string of rectange attributes.
         """
-        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.__id, self.__x, self.__y, self.__width, self.__height))
+        return("[Rectangle] ({}) {}/{} - {}/{}").format(self.id, self.__x, self.__y, self.__width, self.__height)
+
