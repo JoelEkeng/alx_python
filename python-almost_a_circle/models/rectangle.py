@@ -177,5 +177,15 @@ class Rectangle(Base):
         Returns:
         str: A formatted string representing the updated Rectangle object.
         """
-        self.__id, self.__width, self.__height, self.__x, self.__y = args
-        return("[Rectangle] ({}) {}/{} - {}/{}").format(self.id, self.__x, self.__y, self.__width, self.__height)
+        if args:
+            num_args = len(args)
+            if num_args >= 1:
+                self.id = args[0]
+            if num_args >= 2:
+                self.__width = args[1]
+            if num_args >= 3:
+                self.__height = args[2]
+            if num_args >= 4:
+                self.__x = args[3]
+            if num_args >= 5:
+                self.__y = args[4]
