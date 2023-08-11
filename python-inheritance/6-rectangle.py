@@ -65,26 +65,26 @@ class Rectangle(BaseGeometry):
             ValueError: If the value of the attribute width or height is less than or equal to 0.
         """
         BaseGeometry.integer_validator()
-        self.integer_validator("width", width)
-        self.integer_validator("height", height)
+        # self.integer_validator("width", width)
+        # self.integer_validator("height", height)
         self.__width = width
         self.__height = height
     
-    def area(self):
-        """
-        Calculates the area of the rectangle.
+    # def area(self):
+    #     """
+    #     Calculates the area of the rectangle.
 
-        Returns:
-            int: The area of the rectangle.
-        """
-        return self.__width * self.__height
-        
-    def __getattribute__(self, name):
-        if name in ["_width", "_height"]:
-            raise AttributeError("'Rectangle' object has no attribute '{}'".format(name))
-        elif name == "height" and not isinstance(object.__getattribute__(self, "_height"), int):
-            raise TypeError("height must be an integer")
-        return super().__getattribute__(name)
+    #     Returns:
+    #         int: The area of the rectangle.
+    #     """
+    #     return self.__width * self.__height
+
+    # def __getattribute__(self, name):
+    #     if name in ["_width", "_height"]:
+    #         raise AttributeError("'Rectangle' object has no attribute '{}'".format(name))
+    #     elif name == "height" and not isinstance(object.__getattribute__(self, "_height"), int):
+    #         raise TypeError("height must be an integer")
+    #     return super().__getattribute__(name)
 
     def __dir__(cls):
         """This is used to check the list of attributes in the dir magic class.
