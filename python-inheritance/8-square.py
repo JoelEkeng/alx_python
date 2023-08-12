@@ -9,7 +9,6 @@ The Square class has an area() method that calculates the area.
 """
 
 BaseGeometry = __import__('7-rectangle').BaseGeometry
-
 class Square(BaseGeometry):
     """
     This class defines a Square.
