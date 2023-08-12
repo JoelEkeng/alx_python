@@ -6,7 +6,7 @@ The Rectangle class inherits from the BaseGeometry class. It has two private att
 The Rectangle class has an area() method that calculates the area of the rectangle.
 """
 
-class BaseGeometrymetaclass(type):
+class OverrideMetaClass(type):
     """
         This is a meta class created to inform the behaviour of the BaseGeometry class.
         It's the base class for the BaseGeometry class
