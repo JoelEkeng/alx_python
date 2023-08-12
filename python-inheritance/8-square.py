@@ -38,7 +38,6 @@ class Square(BaseGeometry):
 
         Raises:
             TypeError: If the value of the attribute size is not an integer.
-            ValueError: If the value of the attribute size is less than or equal to 0.
         """
         super().__init__()
         self.__size = size
