@@ -3,7 +3,7 @@
 """
 This module defines the Square class.
 
-The Square class inherits from the Rectangle class. 
+The Square class inherits from the Rectangle class.
 
 The Square class has an area() method that calculates the area.
 """
@@ -22,8 +22,10 @@ class Square(BaseGeometry):
 
     Raises:
         AttributeError: If the attribute width or height is accessed.
-        TypeError: If the value of the attribute width or height is not an integer.
-        ValueError: If the value of the attribute width or height is less than or equal to 0.
+        TypeError: If the value of the attribute width 
+        or height is not an integer.
+        ValueError: If the value of the attribute width 
+        or height is less than or equal to 0.
     """
 
     def __init__(self, size):
