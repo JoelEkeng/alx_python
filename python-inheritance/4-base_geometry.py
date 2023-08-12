@@ -14,7 +14,7 @@ class OverrideMetaClass(type):
         """This is used to check the list of attributes in the dir magic class.
         It ensures that __init_subclass__ is not printed"""
         return [attribute for attribute in super.__dir__() if attribute != '__init_subclass__']
-class BaseGeometry(OverrideMetaClass):
+class BaseGeometry(OverrideMetaClass('BaseGeometry', (), {})):
     """This is an empty class.
     The Pass keyword is used to print an empty line
     """
