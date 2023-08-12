@@ -18,16 +18,15 @@ class OverrideMetaClass(type):
     
 BaseGeometry = __import__('7-rectangle').BaseGeometry   
 
-class Rectangle(BaseGeometry):
+class Square(BaseGeometry):
     """
-    This class defines a rectangle.
+    This class defines a Square.
 
     Attributes:
-        _width (int): The width of the rectangle.
-        _height (int): The height of the rectangle.
+        __size (int): The size of the square.
 
     Methods:
-        area(): Calculates the area of the rectangle.
+        area(): Calculates the area of the square.
 
     Raises:
         AttributeError: If the attribute width or height is accessed.
@@ -37,15 +36,14 @@ class Rectangle(BaseGeometry):
 
     def __init__(self, size):
         """
-        Initializes a new rectangle.
+        Initializes a new square.
 
         Args:
-            width (int): The width of the rectangle.
-            height (int): The height of the rectangle.
+            size (int): The size of the rectangle.
 
         Raises:
-            TypeError: If the value of the attribute width or height is not an integer.
-            ValueError: If the value of the attribute width or height is less than or equal to 0.
+            TypeError: If the value of the attribute size is not an integer.
+            ValueError: If the value of the attribute size is less than or equal to 0.
         """
         super().__init__()
         self.__size = size
@@ -55,10 +53,10 @@ class Rectangle(BaseGeometry):
 
     def area(self):
         """
-        Calculates the area of the rectangle.
+        Calculates the size of the square.
 
         Returns:
-            int: The area of the rectangle.
+            int: The area of the square.
         """
         return self._width * self._height
 
