@@ -1,22 +1,14 @@
+#!/usr/bin/python3
+
 """
 This module defines the Square class.
 
-The Square class inherits from the Rectangle class. It has two private attributes: width and height. These attributes are validated by the integer_validator() method from the BaseGeometry class.
+The Square class inherits from the Rectangle class. 
 
-The Square class has an area() method that calculates the area of the rectangle.
+The Square class has an area() method that calculates the area.
 """
 
-class OverrideMetaClass(type):
-    """
-        This is a meta class created to inform the behaviour of the BaseGeometry class.
-        It's the base class for the BaseGeometry class
-    """
-    def __dir__(cls):
-        """This is used to check the list of attributes in the dir magic class.
-        It ensures that __init_subclass__ is not printed"""
-        return [attribute for attribute in super.__dir__() if attribute != '__init_subclass__']
-    
-BaseGeometry = __import__('7-rectangle').BaseGeometry   
+BaseGeometry = __import__('7-rectangle').BaseGeometry
 
 class Square(BaseGeometry):
     """
@@ -48,8 +40,6 @@ class Square(BaseGeometry):
         super().__init__()
         self.__size = size
         self.integer_validator("size", size)
-        
-        
 
     def area(self):
         """
@@ -59,16 +49,6 @@ class Square(BaseGeometry):
             int: The area of the square.
         """
         return self._width * self._height
-
-    # Prevents the attributes width and height from being accessed directly.
-    """
-    def __getattribute__(self, name):
-        if name in ["_width", "_height"]:
-            raise AttributeError("'Rectangle' object has no attribute '{}'".format(name))
-        elif name == "height" and not isinstance(object.__getattribute__(self, "_height"), int):
-            raise TypeError("height must be an integer")
-        return super().__getattribute__(name)
-    """
 
     def __dir__(cls):
         """
