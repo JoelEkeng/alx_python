@@ -22,9 +22,9 @@ class Square(BaseGeometry):
 
     Raises:
         AttributeError: If the attribute width or height is accessed.
-        TypeError: If the value of the attribute width 
+        TypeError: If the value of the attribute width
         or height is not an integer.
-        ValueError: If the value of the attribute width 
+        ValueError: If the value of the attribute width
         or height is less than or equal to 0.
     """
 
