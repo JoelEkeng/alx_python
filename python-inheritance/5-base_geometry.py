@@ -1,48 +1,83 @@
-#!/usr/bin/python3
-
 """
-3-base_geometry
-It contains an empty class call BaseGeometry
+This module defines the BaseGeometry class.
 
+The BaseGeometry class is an abstract class that cannot be instantiated. It is used as a base class for other classes that will implement the area() method.
+
+The area() method is not implemented because the class BaseGeometry is an abstract class.
 """
-class BaseGeometrymetaclass(type):
-    """
-        This is a meta class created to inform the behaviour of the BaseGeometry class.
-        It's the base class for the BaseGeometry class
-    """
-    def __dir__(cls):
-        """This is used to check the list of attributes in the dir magic class.
-        It ensures that __init_subclass__ is not printed"""
-        return [attribute for attribute in super.__dir__() if attribute != '__init_subclass__']
-class BaseGeometry(metaclass=BaseGeometrymetaclass):
-    """This is an empty class.
-    The Pass keyword is used to print an empty line
-    """
-    pass
+
+
+class OverrideMetaClass(type):
+    def __new__(cls, name, bases, attrs):
+        # Customize the class creation process here
+        return super().__new__(cls, name, bases, attrs)
 
     def __dir__(cls):
-        """This is used to check the list of attributes in the dir magic class.
-        It ensures that __init_subclass__ is not printed"""
+        """
+        Returns:
+            list: List of attributes excluding __init_subclass__.
+        """
         return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
 
+class BaseGeometry(OverrideMetaClass('BaseGeometry', (), {})):
+    """
+    This class defines two public instance methods:
+
+    * area(): This method raises an exception with the message area() is not implemented.
+    * integer_validator(): This method validates the value. It assumes that the name is always a string. If the value is not an integer, it raises a TypeError exception with the message <name> must be an integer. If the value is less or equal to 0, it raises a ValueError exception with the message <name> must be greater than 0.
+
+    Args:
+        None
+
+    Returns:
+        None
+
+    Raises:
+        Exception: The message area() is not implemented
+    """
+
+    def __init__(self):
+        pass
+
     def area(self):
-        """It's used to raise an exception that the area method is not implemented
         """
-        raise Exception ('area() is not implemented')
+        This method raises an exception with the message area() is not implemented.
+
+        The area() method is not implemented because the class BaseGeometry is an abstract class. An abstract class is a class that cannot be instantiated. It is used as a base class for other classes that will implement the abstract methods.
+
+        Args:
+            None
+
+        Returns:
+            None
+
+        Raises:
+            Exception: The message area() is not implemented
+        """
+
+        raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """Creating an instance of name and value
         """
-        self.name = name
-        self.value = value
-        
-        """Checking that the value passed by the user is an Integer
-        If it's not an Integer, a TypeError is raised
+        This method validates the value. It assumes that the name is always a string. If the value is not an integer, it raises a TypeError exception with the message <name> must be an integer. If the value is less or equal to 0, it raises a ValueError exception with the message <name> must be greater than 0.
+        Args:
+            name (str): The name of the value.
+            value (int): The value to be validated.
+        Returns:
+            None
+        Raises:
+            TypeError: The message <name> must be an integer
+            ValueError: The message <name> must be greater than 0
         """
+
         if not isinstance(value, int):
-            raise TypeError ('{} must be an integer'.format(name))
-        """Checking that the value must be great than zero
-        if the value is less than or equal to zero, then a valueError is raised.
+            raise TypeError("{} must be an integer".format(name))
+        elif value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
+        
+    def __dir__(cls):
         """
-        if value <= 0 :
-            raise ValueError ('{} must be greater than 0'.format(name))
+        Returns:
+            list: List of attributes excluding __init_subclass__.
+        """
+        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
