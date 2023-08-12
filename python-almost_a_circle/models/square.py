@@ -1,5 +1,6 @@
-from models.rectangle import Rectangle
+"""This module defines the Square class."""
 
+from models.rectangle import Rectangle
 
 class Square(Rectangle):
 
