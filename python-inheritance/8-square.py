@@ -48,7 +48,7 @@ class Square(BaseGeometry):
         Returns:
             int: The area of the square.
         """
-        return self._width * self._height
+        return self.__size * self.__size
 
     def __dir__(cls):
         """
