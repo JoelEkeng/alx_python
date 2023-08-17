@@ -1,8 +1,8 @@
-"""Python script that fetches https://alu-intranet.hbtn.io/status
-"""
-import request
-"""This function is used for importing the request fuction from the uniform resource libary
-"""
+import requests
 
-with urllib.request.urlopen('https://alu-intranet.hbtn.io/status') as response:
-    html = response.read()
+url = "https://alu-intranet.hbtn.io/status"
+response = requests.get(url)
+
+print("Body response:")
+print("\t- type:", type(response.text))
+print("\t- content:", response.text)
