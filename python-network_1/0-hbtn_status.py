@@ -1,6 +1,6 @@
 """Python script that fetches https://alu-intranet.hbtn.io/status
 """
-import urllib.request
+import request
 """This function is used for importing the request fuction from the uniform resource libary
 """
 
