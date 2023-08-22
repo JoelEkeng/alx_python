@@ -18,8 +18,8 @@ def main():
     try:
         db = MySQLdb.connect(**connection_params)
         cur = db.cursor()
-
-        cur.execute("SELECT name FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC")
+        query = "SELECT name FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC"
+        cur.execute(query)
         rows = cur.fetchall()
         for row in rows:
             print(row)
