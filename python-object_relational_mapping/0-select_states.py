@@ -1,10 +1,14 @@
 import MySQLdb
 
-b = MySQLdb.connect(host=localhost, port=3306, db=hbtn_0e_0_usa)
+b = MySQLdb.connect(
+    user="username",
+    passwd="password",
+    db="mydatabase"
+)
 
 cur = db.cursor()
 
-cur.execute("SELECT * FROM states")
+cur.execute("SELECT * FROM states ORDERED BY states.id")
 rows = cur.fetchall()
 for row in rows:
     for col in row:
