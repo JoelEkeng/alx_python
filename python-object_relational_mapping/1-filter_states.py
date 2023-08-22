@@ -18,7 +18,7 @@ def main():
     try:
         db = MySQLdb.connect(**connection_params)
         cur = db.cursor()
-        query = "SELECT * FROM states WHERE name REGEXP '^N' ORDER BY states.id ASC"
+        query = "SELECT * FROM states WHERE name REGEXP BINARY '^N' ORDER BY states.id ASC"
         cur.execute(query)
         rows = cur.fetchall()
         for row in rows:
