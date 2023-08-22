@@ -15,11 +15,22 @@ def main():
         "port": 3306,
     }
 
-    cur.execute("SELECT name FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC")
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    try:
+        db = MySQLdb.connect(**connection_params)
+        cur = db.cursor()
 
+        cur.execute("SELECT name FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC")
+        rows = cur.fetchall()
+        for row in rows:
+            print(row)
+
+    except MySQLdb.Error as e:
+        print("Error:", e)
+    finally:
+        if cur:
+            cur.close()
+        if db:
+            db.close()
 
 if __name__ == "__main__":
     main()
