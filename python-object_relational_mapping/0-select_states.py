@@ -1,16 +1,28 @@
 import MySQLdb
+import sys
 
-b = MySQLdb.connect(
-    user="username",
-    passwd="password",
-    db="mydatabase"
-)
+def main():
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
 
-cur = db.cursor()
+    db = MySQLdb.connect(
+        host="localhost",
+        user=username,
+        passwd=password,
+        db=database,
+        port=3306
+    )
 
-cur.execute("SELECT * FROM states ORDERED BY states.id")
-rows = cur.fetchall()
-for row in rows:
-    for col in row:
-        print ("%s," % col)
-    print ("\n")
+    cur = db.cursor()
+
+    cur.execute("SELECT * FROM states ORDER BY states.id")
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
+
+    cur.close()
+    db.close()
+
+if __name__ == "__main__":
+    main()
