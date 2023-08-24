@@ -23,8 +23,8 @@ def main():
 
         query = (
             "SELECT * FROM states WHERE BINARY name" 
-            "LIKE '{}'OR name '{}' ORDER BY states.id ASC"
-        ).format(state_name, state)
+            "LIKE '%s' ORDER BY states.id ASC"
+        )
 
         cur.execute(query)
 
