@@ -1,7 +1,13 @@
 import sys
 import MySQLdb
 
-def search_states_by_name(username, password, database, state_name):
+
+def main():
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+    state = sys.argv[4]
+
     connection_params = {
         "host": "localhost",
         "user": username,
@@ -12,31 +18,24 @@ def search_states_by_name(username, password, database, state_name):
 
     try:
         db = MySQLdb.connect(**connection_params)
-        cursor = db.cursor()
+        cur = db.cursor()
 
-        query = "SELECT * FROM states WHERE name = %s ORDER BY states.id"
-        cursor.execute(query, (state_name,))
-
-        rows = cursor.fetchall()
-
+        query = (
+            "SELECT * FROM states WHERE BINARY name LIKE"
+            "'N%' ORDER BY states.id ASC".format(argv)
+        )
+        cur.execute(query, (state))
+        rows = cur.fetchall()
         for row in rows:
             print(row)
 
     except MySQLdb.Error as e:
         print("Error:", e)
     finally:
-        if cursor:
-            cursor.close()
+        if cur:
+            cur.close()
         if db:
             db.close()
 
 if __name__ == "__main__":
-    if len(sys.argv) != 5:
-        print("Usage: python script.py <username> <password> <database> <state_name>")
-    else:
-        username = sys.argv[1]
-        password = sys.argv[2]
-        database = sys.argv[3]
-        state_name = sys.argv[4]
-
-        search_states_by_name(username, password, database, state_name)
+    main()
