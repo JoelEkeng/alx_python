@@ -1,6 +1,3 @@
-"""
-    Using the sqlaclchemy libary
-"""
 from sqlalchemy import column, integer, string
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -17,7 +14,7 @@ class State(Base):
 
     Args:
         Base (DeclarativeMeta): The base class.
-    """
+        """
     
     __tablename__ = 'states'
 
