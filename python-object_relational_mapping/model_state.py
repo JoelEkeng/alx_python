@@ -9,13 +9,13 @@ Base = declarative_base()
 
 class State(Base):
     """
-        Maps to the 'states' table.
+    Maps to the 'states' table.
 
-        Attributes:
+    Attributes:
         id (int): The unique identifier for the state.
         name (str): The name of the state.
 
-        Args:
+    Args:
         Base (DeclarativeMeta): The base class.
     """
     
