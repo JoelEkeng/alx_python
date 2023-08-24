@@ -27,8 +27,6 @@ def main():
         LIKE BINARY %s
         ORDER BY id ASC
         """
-
-
         cur.execute(query, (state_name,))
 
         rows = cur.fetchall()
