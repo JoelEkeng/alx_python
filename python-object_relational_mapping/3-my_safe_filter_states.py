@@ -6,7 +6,8 @@ def main():
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-    state_name = sys.argv[4]
+    # state_name = sys.argv[4]
+    state = input("Enteer name: ")
 
     connection_params = {
         "host": "localhost",
@@ -27,7 +28,7 @@ def main():
         LIKE BINARY %s
         ORDER BY id ASC
         """
-        cur.execute(query, (state_name,))
+        cur.execute(query, (state,))
 
         rows = cur.fetchall()
 
