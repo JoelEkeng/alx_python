@@ -6,7 +6,7 @@ def main():
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-    state_name = sys.argv[4]
+    #state_name = sys.argv[4]
     state = input("state_name: ")
 
     connection_params = {
@@ -26,7 +26,7 @@ def main():
             "LIKE '%s' ORDER BY states.id ASC"
         )
 
-        cur.execute(query)
+        cur.execute(query, (state,))
 
         rows = cur.fetchall()
 
