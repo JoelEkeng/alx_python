@@ -4,8 +4,8 @@ import MySQLdb
 
 def main():
     username = sys.argv[1]
-    password = input("Password: ")
-    database = input("Database: ")
+    password = sys.argv[2]
+    database = sys.argv[3]
     state_name = input("State name: ")
 
     connection_params = {
