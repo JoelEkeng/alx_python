@@ -20,10 +20,14 @@ def main():
         db = MySQLdb.connect(**connection_params)
         cur = db.cursor()
 
-        query = (
-            "SELECT * FROM states WHERE BINARY name"
-            "LIKE '%s' ORDER BY id ASC"
-        )
+        query = """
+        SELECT *
+        FROM states
+        WHERE name
+        LIKE BINARY %s
+        ORDER BY id ASC
+        """
+
 
         cur.execute(query, (state_name,))
 
