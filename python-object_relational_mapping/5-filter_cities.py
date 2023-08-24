@@ -31,8 +31,8 @@ def main():
 
         rows = cur.fetchall()
 
-        for row in rows:
-            print(row)
+        city_names = [row[0] for row in rows]
+        print(", ".join(city_names))
 
     except MySQLdb.Error as e:
         print("Error:", e)
