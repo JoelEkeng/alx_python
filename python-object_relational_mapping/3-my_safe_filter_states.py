@@ -7,7 +7,7 @@ def main():
     password = sys.argv[2]
     database = sys.argv[3]
     state_name = sys.argv[4]
-    # state = input("state_name: ")
+    state = input("state_name: ")
 
     connection_params = {
         "host": "localhost",
@@ -22,8 +22,9 @@ def main():
         cur = db.cursor()
 
         query = (
-            "SELECT * FROM states WHERE BINARY name LIKE '%{}%' ORDER BY states.id ASC"
-        ).format(state_name)
+            "SELECT * FROM states WHERE BINARY name" 
+            "LIKE '{}'OR name '{}' ORDER BY states.id ASC"
+        ).format(state_name, state)
 
         cur.execute(query)
 
