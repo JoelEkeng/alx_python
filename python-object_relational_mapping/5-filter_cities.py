@@ -21,10 +21,10 @@ def main():
         cur = db.cursor()
 
         query = """
-        SELECT *
+        SELECT cities.name
         FROM cities
         JOIN states ON cities.state_id = states.id
-        WHERE name LIKE '%s'
+        WHERE states.name = %s
         ORDER BY id ASC
         """
         cur.execute(query, (state_name,))
