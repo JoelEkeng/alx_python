@@ -19,13 +19,7 @@ def main():
         db = MySQLdb.connect(**connection_params)
         cur = db.cursor()
 
-        query = """
-        SELECT *
-        FROM cities
-        WHERE name
-        LIKE BINARY %s
-        ORDER BY cities.id ASC
-        """
+        query = ("SELECT * FROM cities ORDERED BY cities.id ASC")
         cur.execute(query)
 
         rows = cur.fetchall()
