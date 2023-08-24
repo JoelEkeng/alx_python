@@ -22,10 +22,13 @@ def main():
 
         query = (
             "SELECT * FROM states WHERE BINARY name LIKE"
-            "'N%' ORDER BY states.id ASC"
+            "'{}' ORDER BY states.id ASC"
         ).format(state)
+
         cur.execute(query)
+
         rows = cur.fetchall()
+
         for row in rows:
             print(row)
 
