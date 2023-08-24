@@ -3,7 +3,7 @@ import MySQLdb
 
 
 def main():
-    username = input("Username: ")
+    username = sys.argv[1]
     password = input("Password: ")
     database = input("Database: ")
     state_name = input("State name: ")
