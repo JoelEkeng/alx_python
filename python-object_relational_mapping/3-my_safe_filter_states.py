@@ -6,7 +6,7 @@ def main():
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-    state_name = input("State name: ")
+    state_name = sys.argv[4]
 
     connection_params = {
         "host": "localhost",
