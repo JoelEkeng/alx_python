@@ -21,7 +21,7 @@ def main():
         cur = db.cursor()
 
         query = (
-            "SELECT * FROM states WHERE BINARY name" 
+            "SELECT * FROM states WHERE BINARY name"
             "LIKE '%s' ORDER BY states.id ASC"
         )
 
