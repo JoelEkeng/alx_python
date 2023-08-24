@@ -21,7 +21,7 @@ def main():
         cur = db.cursor()
 
         query = """
-        SELECT cities.id, cities.name, states.name
+        SELECT *
         FROM cities
         JOIN states ON cities.state_id = states.id
         WHERE name LIKE '%s'
