@@ -24,7 +24,7 @@ def main():
         query = (
             "SELECT * FROM states WHERE BINARY name LIKE"
             "'{}' ORDER BY states.id ASC"
-        ).format(state_name, state)
+        ).format(state_name)
 
         cur.execute(query)
 
