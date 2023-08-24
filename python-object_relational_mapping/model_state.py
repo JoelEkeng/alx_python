@@ -1,3 +1,6 @@
+"""
+    Using the sqlaclchemy libary
+"""
 from sqlalchemy import column, integer, string
 from sqlalchemy.ext.declarative import declarative_base
 
