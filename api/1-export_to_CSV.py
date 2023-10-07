@@ -1,58 +1,45 @@
-""" Uses a REST API, fetching data about a given employee
-    (identified by their id passed to sript as argument) &
-    exports the data (of all tasks owned by user) in the CSV format
-"""
-
 import csv
 import requests
 import sys
 
-if __name__ == "__main__":
+def export_employee_todo_progress_to_csv(employee_id):
+    """
+    Fetches an employee's TODO list, creates a CSV file, and writes the data.
 
-    base_url = "https://jsonplaceholder.typicode.com"
-    employee_id = sys.argv[1]
-
+    Args:
+        employee_id (int): The ID of the employee for whom to fetch TODO list and create a CSV file.
+    """
     # Fetch employee details
-    employee_url = "{}/users/{}".format(base_url, employee_id)
+    employee_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
     employee_response = requests.get(employee_url)
+
+    if employee_response.status_code != 200:
+        print(f"Employee with ID {employee_id} not found.")
+        return
+
     employee_data = employee_response.json()
-
-    if 'name' not in employee_data:
-        print("Employee not found.")
-        sys.exit(1)
-
-    employee_name = employee_data.get('name')
+    employee_username = employee_data['username']
 
     # Fetch employee's TODO list
-    todo_url = "{}/users/{}/todos".format(base_url, employee_id)
-    todo_response = requests.get(todo_url)
-    todo_data = todo_response.json()
+    todos_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos"
+    todos_response = requests.get(todos_url)
 
-    # Calculate progress
-    total_tasks = len(todo_data)
-    completed_tasks = sum(1 for task in todo_data if task.get("completed"))
+    if todos_response.status_code != 200:
+        print(f"Unable to fetch TODO list for employee with ID {employee_id}.")
+        return
 
-    # Display progress
-    print("Employee {} is done with tasks({}/{}):".format(employee_name,
-                                                          completed_tasks, total_tasks))
+    todos_data = todos_response.json()
 
-    # Display completed task titles
-    for task in todo_data:
-        if task.get("completed"):
-            formatted_task_title = "\t {}".format(task.get("title"))
-            print(formatted_task_title)
+    # Create CSV file and write data
+    csv_filename = f"{employee_id}.csv"
+    with open(csv_filename, mode='w', newline='') as csv_file:
+        writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL, delimiter=',', quotechar='"')
+    
+        # Write task data
+        for todo in todos_data:
+            csv_line = [str(employee_id), employee_username, str(todo["completed"]), todo["title"]]
+            writer.writerow(csv_line)
 
-    # Export data in CSV
-    file_name = '{}.csv'.format(employee_id)
-    with open(file_name, mode='w', newline='',) as csv_file:
-        csv_writer = csv.writer(csv_file, delimiter=',',
-                                quotechar='"', quoting=csv.QUOTE_ALL)
-
-        # header
-        # csv_writer.writerow(
-        # ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS', 'TASK_TITLE'])
-
-        # write each csv row
-        for task in todo_data:
-            csv_writer.writerow([employee_id, employee_name,
-                                task['completed'], task['title']])
+if __name__ == "__main__":
+    employee_id = int(sys.argv[1])
+    export_employee_todo_progress_to_csv(employee_id)
