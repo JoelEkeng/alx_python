@@ -1,32 +1,65 @@
 """
-Script to export data in the JSON format.
-"""
+This is a python module that takes id from d user
+and send a request to the Url. the response is
+formatted and save to a json file.
 
+param:
+    filename: string
+    user_id : string
+    data_to_json : function
+"""
 import json
 import requests
+import sys
 
-if __name__ == "__main__":
-    api_request_users = requests.get("https://jsonplaceholder.typicode.com/users")
-    api_request_todos = requests.get("https://jsonplaceholder.typicode.com/todos")
-    users_data = api_request_users.json()
-    todos_data = api_request_todos.json()
 
+def employee_todo_task():
+    """
+    Fetches the employee's details and TODO list using the
+    provided API endpoints,
+    exports the informationto a JSON file.
+
+    Parameters:
+    - employee_id (int): The ID of the employee.
+
+    Returns:
+    None
+    """
+    # format url with input from user
+    user_url = 'https://jsonplaceholder.typicode.com/users'
+    users_data = requests.get(user_url).json()
+
+    all_task_data = {}
+    
+    for user_data in users_data:
+        user_id = user_data.get('id')
+        
+        username = user_data.get('username')
+        
+        todo_url = 'https://jsonplaceholder.typicode.com/users/{}/todos'\
+        .format(user_id)
+        todo_data = requests.get(todo_url).json()
+
+        user_task_data = []
+        for task in todo_data:
+            user_task_data.append({
+                "username":username,
+                "task": task['title'],
+                "completed": task['completed']
+            })
+        all_task_data[user_id] = user_task_data
+    #   
+    # request data frm to
+    # do and user api
+    
+
+    # Write to JSON file name filename
     filename = "todo_all_employees.json"
 
-    result = {}
-    for user in users_data:
-        user_id = user["id"]
-        username = user["username"]
-        user_todos = [
-            {
-                "task": todo["title"],
-                "completed": todo["completed"],
-                "username": username,
-            }
-            for todo in todos_data
-            if todo["userId"] == user_id
-        ]
-        result[user_id] = user_todos
+    # open the file and overwrite it content with w
+    with open(filename, 'w') as file:
+        json.dump(all_task_data, file, indent=2)
 
-    with open(filename, "w") as outfile:
-        json.dump(result, outfile)
+# function call
+if __name__=='__main__':
+    employee_todo_task()
